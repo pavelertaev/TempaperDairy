@@ -4,8 +4,8 @@ import java.time.LocalTime;
 import java.time.temporal.TemporalAdjusters;
 
 public class Annual extends Task implements Repeatable{
-    public Annual(String descriptionTask, String header, LocalDateTime dateOfCreation, String tipeTask) {
-        super(descriptionTask, header, dateOfCreation, tipeTask);
+    public Annual(String descriptionTask, String header, boolean dateOfCreation, LocalDateTime tipeTask) {
+        super(descriptionTask, header, tipeTask, dateOfCreation);
     }
     LocalTime timeOfRepeat = LocalTime.of(getDateOfCreation().getHour(), getDateOfCreation().getMinute());
     int repeatDayOfYear = getDateOfCreation().getDayOfYear();

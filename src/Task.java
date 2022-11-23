@@ -1,14 +1,15 @@
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Map;
 
 public class Task {
     private String descriptionTask;
-    private final  int taskId;
-    private static int count=0;
+    private final int taskId;
+    private static int count = 0;
     private String header;
     private LocalDateTime dateOfCreation;
-    private String tipeTask;
+    private boolean tipeTask = true;
+
+
+
 
     public String getDescriptionTask() {
         return descriptionTask;
@@ -34,11 +35,11 @@ public class Task {
         this.header = header;
     }
 
-    public String getTipeTask() {
+    public boolean isTipeTask() {
         return tipeTask;
     }
 
-    public void setTipeTask(String tipeTask) {
+    public void setTipeTask(boolean tipeTask) {
         this.tipeTask = tipeTask;
     }
 
@@ -50,25 +51,36 @@ public class Task {
         this.dateOfCreation = dateOfCreation;
     }
 
-    public Task(String descriptionTask, String header, LocalDateTime data,String tipeTask) {
+    public Task(String descriptionTask, String header, LocalDateTime data, boolean tipeTask) {
         this.descriptionTask = descriptionTask;
-        if(descriptionTask==null||descriptionTask.isEmpty()||descriptionTask.isBlank()){
+        if (descriptionTask == null || descriptionTask.isEmpty() || descriptionTask.isBlank()) {
             throw new RuntimeException("Описание не заполнено");
         }
         this.header = header;
-        if(header==null||header.isEmpty()||header.isBlank()){
+        if (header == null || header.isEmpty() || header.isBlank()) {
             throw new RuntimeException("Заголовок не заполнен");
         }
         dateOfCreation = data;
-        this.tipeTask=tipeTask;
-        if(tipeTask==null||tipeTask.isEmpty()||tipeTask.isBlank()){
-            throw new RuntimeException("Тип задачи не заполнен");
-        }
-        taskId=count++;
+        this.tipeTask = tipeTask;
+        taskId = count++;
     }
 
-
-
-
+    @Override
+    public String toString() {
+        String isWork;
+        if (tipeTask) {
+            isWork = "Рабочая";
+        } else {
+            isWork = "Личная";
+        }
+        return "Задача: " +
+                "Уникальный номер = " + taskId +
+                ", Заголовок = '" + header + '\'' +
+                ", Описание = '" + descriptionTask + '\'' +
+                ", Тип = '" + isWork + '\'' +
+                ", Дата начала выполнения  = " + dateOfCreation.toLocalDate() +
+                ", Время = " + dateOfCreation.toLocalTime();
+    }
 }
+
 

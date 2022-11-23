@@ -2,8 +2,8 @@ import java.time.LocalDateTime;
 
 public class Single extends Task implements Repeatable {
 
-    public Single(String descriptionTask, String header, LocalDateTime dateOfCreation, String tipeTask) {
-        super(descriptionTask, header, dateOfCreation, tipeTask);
+    public Single(String descriptionTask, String header, boolean dateOfCreation, LocalDateTime tipeTask) {
+        super(descriptionTask, header, tipeTask, dateOfCreation);
 
     }
 
@@ -14,6 +14,6 @@ public class Single extends Task implements Repeatable {
 
 
     public boolean checkTask(LocalDateTime data ) {
-        return getDateOfCreation().equals(data);
+        return getDateOfCreation().isBefore(data);
     }
 }

@@ -2,12 +2,11 @@ import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.time.temporal.TemporalAdjuster;
 import java.time.temporal.TemporalAdjusters;
 
 public class Weekly extends Task implements Repeatable {
-    public Weekly(String descriptionTask, String header, LocalDateTime dateOfCreation, String tipeTask) {
-        super(descriptionTask, header, dateOfCreation, tipeTask);
+    public Weekly(String descriptionTask, String header, boolean dateOfCreation, LocalDateTime tipeTask) {
+        super(descriptionTask, header, tipeTask, dateOfCreation);
     }
 
     LocalTime timeOfRepeat = LocalTime.of(getDateOfCreation().getHour(), getDateOfCreation().getMinute());

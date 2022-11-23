@@ -3,8 +3,8 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 public class Daily extends Task implements Repeatable {
-    public Daily(String descriptionTask, String header, LocalDateTime dateOfCreation, String tipeTask) {
-        super(descriptionTask, header, dateOfCreation, tipeTask);
+    public Daily(String descriptionTask, String header, boolean dateOfCreation, LocalDateTime tipeTask) {
+        super(descriptionTask, header, tipeTask, dateOfCreation);
     }
     LocalTime timeOfRepeat = LocalTime.of(getDateOfCreation().getHour(),getDateOfCreation().getMinute());
 
