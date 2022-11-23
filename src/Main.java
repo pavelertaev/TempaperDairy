@@ -74,7 +74,7 @@ public class Main {
         scanner.nextLine();
     }
 
-    //Интерфейс консоли для удаления задачи
+    //Интерфейс консоли для удаления задачии
     public static void inputDeleteTask(Scanner scanner) {
         System.out.println("На данный момент доступны следующие задачи: ");
         taskManager.printTasks();
