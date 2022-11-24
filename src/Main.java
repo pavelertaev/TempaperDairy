@@ -1,6 +1,4 @@
 import java.time.LocalDateTime;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 
 public class Main {
@@ -35,6 +33,7 @@ public class Main {
                             break;
                         case 0:
                             break label;
+
                     }
                 } else {
                     scanner.next();
@@ -65,7 +64,7 @@ public class Main {
         System.out.println("Введите время начала задачи в формате чч:мм : ");
         String time = scanner.next();
         LocalDateTime localDateTime = taskManager.createDateAndTime(date, time);
-        Task task = taskManager.createTask(taskName, description, localDateTime, isWork, repeatable);
+        Task task = taskManager.createTask( description,taskName, localDateTime, isWork, repeatable);
         taskManager.addTask(task);
         System.out.println("Созданная задача:");
         System.out.println(task.toString());

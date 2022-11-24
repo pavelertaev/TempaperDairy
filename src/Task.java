@@ -6,7 +6,7 @@ public class Task {
     private static int count = 0;
     private String header;
     private LocalDateTime dateOfCreation;
-    private boolean tipeTask = true;
+    private boolean tipeTask ;
 
 
 

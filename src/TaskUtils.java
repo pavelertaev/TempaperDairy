@@ -26,20 +26,14 @@ public class TaskUtils {
 
         //Определение типа повторяемости задач и проверка правильности заполнения
         public Task createTask(String header, String description, LocalDateTime dateOfCreation, boolean tipeTask, int repeatable) {
-            switch (repeatable) {
-                case 0:
-                    return new Single(header, description,tipeTask , dateOfCreation);
-                case 1:
-                    return new Daily(header, description, tipeTask, dateOfCreation);
-                case 2:
-                    return new Weekly(header, description, tipeTask, dateOfCreation);
-                case 3:
-                    return new Monthly(header, description, tipeTask, dateOfCreation);
-                case 4:
-                    return new Annual(header, description, tipeTask, dateOfCreation);
-                default:
-                    throw new IllegalArgumentException("Неправильно был выбран тип повторяемости задача");
-            }
+            return switch (repeatable) {
+                case 0 -> new Single(header, description, tipeTask, dateOfCreation);
+                case 1 -> new Daily(header, description, tipeTask, dateOfCreation);
+                case 2 -> new Weekly(header, description, tipeTask, dateOfCreation);
+                case 3 -> new Monthly(header, description, tipeTask, dateOfCreation);
+                case 4 -> new Annual(header, description, tipeTask, dateOfCreation);
+                default -> throw new IllegalArgumentException("Неправильно был выбран тип повторяемости задача");
+            };
 
         }
 
